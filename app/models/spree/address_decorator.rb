@@ -52,4 +52,16 @@ Spree::Address.class_eval do
     the_same_address = user.addresses.where(attrs).first
     the_same_address ? the_same_address : self
   end
+
+  def state_name
+    state.try(:name)
+  end
+
+  def country_name
+    country.try(:name)
+  end
+
+  def defult_shippiing_address_id
+    user.reload.try(:ship_address_id)
+  end
 end
