@@ -45,4 +45,17 @@ Spree::Address.class_eval do
       update_column :deleted_at, Time.now
     end
   end
+
+  def state_name
+    state.try(:name)
+  end
+
+  def country_name
+    country.try(:name)
+  end
+
+  def defult_shippiing_address_id
+    user.reload.try(:ship_address_id)
+  end
+  
 end
