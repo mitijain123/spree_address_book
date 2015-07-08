@@ -67,10 +67,9 @@ module Spree
 		  end
 
 		  def destroy
-		    @address.destroy
+		    @address.update_attributes(deleted_at: Time.now)
 
-		    flash[:notice] = I18n.t(:successfully_removed, scope: :address_book)
-		    redirect_to(request.env['HTTP_REFERER'] || account_path) unless request.xhr?
+		    ender json:  {status: 200}
 		  end
 
 		  private
