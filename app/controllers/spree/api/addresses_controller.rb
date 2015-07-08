@@ -5,7 +5,7 @@ module Spree
     	load_and_authorize_resource class: Spree::Address
     	
     	def index    
-		    @addresses = @current_api_user.addresses.active
+		    @addresses = @current_api_user.addresses
 		    expires_in 15.minutes, :public => true
         headers['Surrogate-Control'] = "max-age=#{15.minutes}"
 		    render json:  @addresses,  

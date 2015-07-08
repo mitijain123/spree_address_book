@@ -5,8 +5,6 @@
 Spree::Address.class_eval do
   belongs_to :user, :class_name => Spree.user_class.to_s
 
-  scope :active, -> { where(deleted_at: nil) }
-
   def self.required_fields
     Spree::Address.validators.map do |v|
       v.kind_of?(ActiveModel::Validations::PresenceValidator) ? v.attributes : []
