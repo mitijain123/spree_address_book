@@ -69,9 +69,14 @@ module Spree
 		  end
 
 		  def destroy
-		    @address.destroy
+		  	if @address.can_be_deleted?
+		    	@address.destroy
+		    	render json:  {status: 200}
+		    else
+		    	render json:  {status: 404}
+		    end
 
-		    render json:  {status: 200}
+		    
 		  end
 
 		  private
