@@ -69,7 +69,7 @@ module Spree
 		  end
 
 		  def destroy
-		    @address.update_attributes(deleted_at: Time.now)
+		    @address.destroy
 
 		    render json:  {status: 200}
 		  end
