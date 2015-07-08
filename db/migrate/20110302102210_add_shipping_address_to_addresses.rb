@@ -1,7 +1,7 @@
 class AddShippingAddressToAddresses < ActiveRecord::Migration
   def self.up
     change_table addresses_table_name do |t|
-      t.integer :shipping_address, :bollean, {:default => true}
+      t.bollean :shipping_address, {:default => true}
     end
   end
 
