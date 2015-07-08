@@ -24,7 +24,7 @@ module Spree
 		      render json:  @address, :methods => [:state_name , :country_name, :defult_shippiing_address_id ]
 		    else
 		      #render :action => 'new'
-		      render json:  {:error => true , status: 404}
+		      render :json => {:error => "not-found"}.to_json, :status => 404
 		    end
 		  end
 
@@ -50,7 +50,7 @@ module Spree
 		        render json:  @address, :methods => [:state_name , :country_name, :defult_shippiing_address_id ]
 		      else
 		        #render :action => 'edit'
-		        render json:  {:error => true , status: 404}
+		        render :json => {:error => "not-found"}.to_json, :status => 404
 
 		      end
 		    else
@@ -63,7 +63,7 @@ module Spree
 		        render json:  @address, :methods => [:state_name , :country_name ]
 		      else
 		        #render :action => 'edit'
-		        render json:  {:error => true , status: 404}
+		        render :json => {:error => "not-found"}.to_json, :status => 404		        
 		      end
 		    end
 		  end
@@ -73,7 +73,7 @@ module Spree
 		    	@address.destroy
 		    	render json:  {status: 200}
 		    else
-		    	render json:  {status: 404}
+		    	render :json => {:error => "not-found"}.to_json, :status => 404
 		    end
 
 		    
