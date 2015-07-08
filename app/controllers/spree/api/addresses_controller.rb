@@ -6,8 +6,8 @@ module Spree
     	
     	def index    
 		    @addresses = @current_api_user.addresses
-		    expires_in 15.minutes, :public => true
-        headers['Surrogate-Control'] = "max-age=#{15.minutes}"
+		    # expires_in 15.minutes, :public => true
+      #   headers['Surrogate-Control'] = "max-age=#{15.minutes}"
 		    render json:  @addresses,  
 		      :methods => [:state_name , :country_name ]
 
