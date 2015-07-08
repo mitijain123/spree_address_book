@@ -32,7 +32,7 @@ Spree::Order.class_eval do
   
   def bill_address_attributes=(attributes)
     self.bill_address = update_or_create_address(attributes)
-    self.user.bill_address = self.bill_address if self.user
+    # self.user.bill_address = self.bill_address if self.user
   end
 
   def ship_address_id=(id)
@@ -47,8 +47,9 @@ Spree::Order.class_eval do
   end
   
   def ship_address_attributes=(attributes)
+    attributes.merge(:shipping_address => true)
     self.ship_address = update_or_create_address(attributes)
-    self.user.ship_address = self.ship_address if self.user
+    # self.user.ship_address = self.ship_address if self.user
   end
 
   def assign_default_addresses!
