@@ -1,5 +1,5 @@
 (Spree::PermittedAttributes.class_variable_get("@@checkout_attributes") << [
-  :bill_address_id, :ship_address_id, :is_shipping_add
+  :bill_address_id, :ship_address_id
 ]).flatten!
 
 Spree::Order.class_eval do
