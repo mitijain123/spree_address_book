@@ -90,7 +90,8 @@ module Spree
 		                              :state_id,
 		                              :zipcode,
 		                              :country_id,
-		                              :phone
+		                              :phone,
+		                              :is_shipping_add
 		                             )      
 		    end   
 		    def save_to_account_params
