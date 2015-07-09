@@ -1,5 +1,5 @@
 (Spree::PermittedAttributes.class_variable_get("@@checkout_attributes") << [
-  :bill_address_id, :ship_address_id
+  :bill_address_id, :ship_address_id, :is_shipping_add
 ]).flatten!
 
 Spree::Order.class_eval do
@@ -47,7 +47,7 @@ Spree::Order.class_eval do
   end
   
   def ship_address_attributes=(attributes)
-    attributes.merge(:shipping_address => true)
+    # attributes.merge(:shipping_address => true)
     self.ship_address = update_or_create_address(attributes)
     # self.user.ship_address = self.ship_address if self.user
   end

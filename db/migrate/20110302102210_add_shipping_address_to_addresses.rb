@@ -1,13 +1,13 @@
 class AddShippingAddressToAddresses < ActiveRecord::Migration
   def self.up
     change_table addresses_table_name do |t|
-      t.bollean :shipping_address, {:default => true}
+      t.bollean :is_shipping_add, {:default => false}
     end
   end
 
   def self.down
     change_table addresses_table_name do |t|
-      t.remove :shipping_address
+      t.remove :is_shipping_add
     end
   end
 
